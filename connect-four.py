@@ -1,28 +1,27 @@
-def main():
-    board = initialiseBoard()
-    displayBoard(board)
-    
+
+board = []
+
+
 def initialiseBoard():
-    board = []
-    for _ in range(6):
-        row = []
-        for _ in range(7):
-            row.append('-')
-        board.append(row)
-    return board
+    for cols in range(7):
+        board.append(["-","-","-","-","-","-","-"])
     
-def displayBoard(board):
-    for row in board:
-        for cell in row:
-            print(cell, end=' ')
-        print()
-    print()
+def displayBoard():
+    print(" 1 2 3 4 5 6 7 ")
+
+    for rows in board:
+        print("",end="|")
+        for cols in rows:
+            
+            print(cols, end="|") 
+        print("")
 
 def playerTurn():
-    currentPlayer = 7/12
+    playsCount = 1
+
+    if playsCount #divsible by 2 remainder 0
 
 
 
-
-if __name__ == "__main__":
-    main()
+initialiseBoard()
+displayBoard()
