@@ -1,10 +1,10 @@
 
 board = []
-
+playerIndex = {0 : "O" , 1 : "X"}
 
 def initialiseBoard():
     for cols in range(7):
-        board.append(["-","-","-","-","-","-","-"])
+        board.append(["_","_","_","_","_","_","_"])
     
 def displayBoard():
     print(" 1 2 3 4 5 6 7 ")
@@ -17,11 +17,18 @@ def displayBoard():
         print("")
 
 def playerTurn():
-    playsCount = 1
+    playsCount = 1  
+  
+    if playsCount == 0:
+        playsCount += 1
+    else:
+        playsCount -= 1
 
-    if playsCount #divsible by 2 remainder 0
+    print(playerIndex[playsCount])
 
 
 
+playerTurn()
 initialiseBoard()
 displayBoard()
+input()
