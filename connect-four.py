@@ -56,7 +56,7 @@ def play():
         emptySpace = 0
         for rowTest in range(6):
             for colTest in range (5):
-                print(board[rowTest][colTest])
+                #print(board[rowTest][colTest])
                 if board[rowTest][colTest] == "_":
                     emptySpace +=1
                 else:
