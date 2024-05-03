@@ -28,19 +28,19 @@ def displayBoard():
 
 def play():
     turnsCount = 0
-    playsCount = 1  
+    playerCount = 1  
     winCheck = False
+    drawCheck = False
 
-    while winCheck == False and turnsCount < 9:
-        if board[0][0] == "x" and board[0][1] == "x" and board[0][2] == "x":
-            winCheck = True
+    while winCheck == False and drawCheck == False:
+        
 
 
 
-        if playsCount == 0:
-            playsCount += 1
+        if playerCount == 0:
+            playerCount += 1
         else:
-            playsCount -= 1
+            playerCount -= 1
         
         while True:
             squareChoice = input("choose column (A,B,C) and row (1,2,3)")
@@ -48,7 +48,7 @@ def play():
 
             try:
                 if board[boardIndex[squareIndex][1]][boardIndex[squareIndex][0]] == "_":
-                    board[boardIndex[squareIndex][1]][boardIndex[squareIndex][0]] = playerIndex[playsCount]
+                    board[boardIndex[squareIndex][1]][boardIndex[squareIndex][0]] = playerIndex[1]    #[playerCount]
                     break
                 else:
                     print("square is taken, choose again")
@@ -60,9 +60,29 @@ def play():
         turnsCount += 1
         os.system('cls')
         displayBoard()
+        
+        for row in range(3):
+            print(row)
+            print(board[row][0] and board[row][1] and board[row][2])
+            if board[row][0] and board[row][1] and board[row][2] == "X":
+                winCheck = True
+                
+        
+        
+        
+
+        print(board)
+        print(squareChoice)
+        print(squareIndex)
+        print(winCheck)    
     
-    print("sigma")    
+    print("sigmasdadwdasdfassa")
+    return play()    
+
+
+
 
 initialiseBoard()
 displayBoard()
 play()
+
