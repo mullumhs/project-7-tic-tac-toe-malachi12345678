@@ -15,6 +15,7 @@ def initialiseBoard():
         board.append(["_","_","_"])
    
 def displayBoard():
+    #prints the board in a playable format
     print("")
     print("")
     print("  _ _ _")
@@ -34,11 +35,16 @@ def displayBoard():
     print("  A B C")
 
 def play():
+    #counts how many turns have been taken
     turnsCount = 0
+    
+    #flips between 1 and 0 to place each different token for each turn
     playerCount = 1  
+    
     winCheck = False
     drawCheck = False
 
+    #loops player turns until a win or a draw is detected
     while winCheck == False and turnsCount < 9:
         
         if playerCount == 0:
@@ -47,9 +53,11 @@ def play():
             playerCount -= 1
         
         while True:
+            #gets players coordinates and loops until a valid coordinate is inputted
             squareChoice = input("choose column (A,B,C) and row (1,2,3)")
             squareIndex = squareChoice.upper()
 
+            #handles errors from invalid input by playing an error message and restarting loop
             try:
                 if board[boardIndex[squareIndex][1]][boardIndex[squareIndex][0]] == "_":
                     board[boardIndex[squareIndex][1]][boardIndex[squareIndex][0]] = playerIndex[playerCount]
@@ -61,10 +69,11 @@ def play():
                 print("invalid input, choose again")
                 continue
        
-       
+       #clears the previous board and displays the new board
         os.system('cls')
         displayBoard()
         
+        #checks each win situation and checks for draw
         for row in range(3):
             if board[row][0] == board[row][1] == board[row][2] != "_":
                 winCheck = True
@@ -84,6 +93,7 @@ def play():
     
         turnsCount += 1 
     
+    #dislpays win or draw if a player has won or all squares are taken
     if turnsCount == 9:
         print("DRAW")
         input("press enter to continue")
@@ -98,10 +108,12 @@ def clearBoard():
     os.system('cls')
 
 
+def ticTacToe():
+    #loops through the game functions
+    while True:
+        clearBoard()
+        initialiseBoard()
+        displayBoard()
+        play()
 
-while True:
-    clearBoard()
-    initialiseBoard()
-    displayBoard()
-    play()
-
+ticTacToe()
